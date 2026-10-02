@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include <unordered_map>
-#include "GameObject.h"
+#include "Entity.h"
 #include "Room.h"
 
 class World {
@@ -15,6 +15,7 @@ private:
 	Room& createRoom(int x, int y);
 public:
 	World();
-	int addObject(GameObject object, Room& room);
+	void moveEntity(Entity& entity, Room& destination);
+	Entity& createEntity(Room& room);
 	Room& getRoom(int x, int y);
 };

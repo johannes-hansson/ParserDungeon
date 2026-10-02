@@ -3,6 +3,7 @@ class Character {
 private:
 	int instanceId;
 public:
-	Character();
+	Character(int instanceId);
+	int getInstanceId() const;
 };
 
