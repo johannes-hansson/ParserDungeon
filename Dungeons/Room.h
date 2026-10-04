@@ -1,18 +1,20 @@
 #pragma once
 
-#include <utility>
+#include <memory>
 #include <unordered_map>
-#include "Entity.h">
+#include "Character.h"
+
+using CharacterMap = std::unordered_map<int, std::unique_ptr<Character>>;
 
 class Room {
 private:
 	int xCoordinate;
 	int yCoordinate;
-	std::unordered_map<int, Entity> entities;
+	CharacterMap characters;
 public:
 	Room(int x, int y);
 	std::pair<int, int> getCoordinates() const;
-	void addEntity(Entity& entity);
-	void removeEntity(Entity& entity);
+	void addCharacter(std::unique_ptr<Character> character);
+	std::unique_ptr<Character> removeCharacter(int instanceId);
 };
 
