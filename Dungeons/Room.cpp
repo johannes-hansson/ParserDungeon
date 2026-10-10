@@ -1,25 +1,15 @@
-#include "Room.h"
+#include "room.h"
 
-Room::Room(int x, int y) {
-	this->xCoordinate = x;
-	this->yCoordinate = y;
-	this->characters = std::unordered_map<int, std::unique_ptr<Character>>();
+using namespace std;
+
+void add_character_to_room(Room& room, shared_ptr<Character> character) {
+	room.characters.emplace(character->characterId, character);
 }
 
-std::pair<int, int> Room::getCoordinates() const {
-	return std::make_pair(this->xCoordinate, this->yCoordinate);
+void remove_character_from_room(Room& room, int characterId) {
+	room.characters.erase(characterId);
 }
 
-void Room::addCharacter(std::unique_ptr<Character> character) {
-	this->characters[character->getInstanceId()] = std::move(character);
-}
-
-std::unique_ptr<Character> Room::removeCharacter(int instanceId) {
-	auto it = this->characters.find(instanceId);
-	if (it != this->characters.end()) {
-		std::unique_ptr<Character> character = std::move(it->second);
-		this->characters.erase(it);
-		return character;
-	}
-	return nullptr;
+const unordered_map<int, shared_ptr<Character>>& get_characters(Room& room) {
+	return room.characters;
 }

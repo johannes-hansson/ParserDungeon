@@ -1,20 +1,7 @@
 #pragma once
 
-#include <memory>
-#include <unordered_map>
-#include "Character.h"
+#include "world_types.h"
 
-using CharacterMap = std::unordered_map<int, std::unique_ptr<Character>>;
-
-class Room {
-private:
-	int xCoordinate;
-	int yCoordinate;
-	CharacterMap characters;
-public:
-	Room(int x, int y);
-	std::pair<int, int> getCoordinates() const;
-	void addCharacter(std::unique_ptr<Character> character);
-	std::unique_ptr<Character> removeCharacter(int instanceId);
-};
-
+void add_character_to_room(Room& room, std::shared_ptr<Character> character);
+void remove_character_from_room(Room& room, int characterId);
+const std::unordered_map<int, std::shared_ptr<Character>>& get_characters(Room& room);

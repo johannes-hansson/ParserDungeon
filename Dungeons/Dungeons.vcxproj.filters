@@ -19,6 +19,12 @@
     <Filter Include="Source Files\world">
       <UniqueIdentifier>{17fc0406-8d83-45ba-8236-bc33d155837b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\IO">
+      <UniqueIdentifier>{facf7000-5f44-44f3-bf19-080dce59cbae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IO">
+      <UniqueIdentifier>{ffa20e01-0c9c-44d2-8cf6-7e5c36d931cc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Dungeons.cpp">
@@ -39,6 +45,9 @@
     <ClCompile Include="Entity.cpp">
       <Filter>Source Files\world</Filter>
     </ClCompile>
+    <ClCompile Include="input.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -49,6 +58,12 @@
     </ClInclude>
     <ClInclude Include="Entity.h">
       <Filter>Header Files\world</Filter>
+    </ClInclude>
+    <ClInclude Include="world_types.h">
+      <Filter>Header Files\world</Filter>
+    </ClInclude>
+    <ClInclude Include="input.h">
+      <Filter>Header Files\IO</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
